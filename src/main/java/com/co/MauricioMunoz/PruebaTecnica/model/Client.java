@@ -35,8 +35,11 @@ public class Client {
     @NotEmpty
     @Column(name = "NAME", length = 100, nullable = false)
     private String name;
+    @Column(name = "LAST_NAME", length = 100, nullable = false)
+    private String lastName;
     @Column(name = "PASSWORD", length = 50, nullable = false)
     private String password;
+
 
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "client")
     private List<Phone> phones= new ArrayList<>();
