@@ -5,11 +5,10 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-@Service
+@Component
 public class JwtToken {
     @Value("${jwt.secret}")
     private String secret;
@@ -18,6 +17,7 @@ public class JwtToken {
     private long expiration;
 
     public String generateToken(String username) {
+
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + expiration);
 

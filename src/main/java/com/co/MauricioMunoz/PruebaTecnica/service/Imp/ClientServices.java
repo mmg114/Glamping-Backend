@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -28,6 +29,7 @@ public class ClientServices implements IClienteServices {
     private final ClientMapper clientMapper;
     private  final PasswordValidator passwordValidator;
 
+    @Autowired
     private final JwtToken jwtTokenService;
 
     @Autowired
@@ -56,8 +58,8 @@ public class ClientServices implements IClienteServices {
         clientTmp.setToken(jwtTokenService.generateToken(clientTmp.getEmail()));
 
 
-        clientTmp.setCreationDate(new Date());
-        clientTmp.setLastLogin(new Date());
+        clientTmp.setCreationDate(LocalDate.now());
+        clientTmp.setLastLogin(LocalDate.now());
         clientTmp.setActive(true);
         return createResponse(clientRepository.save(clientTmp));
     }
@@ -65,16 +67,18 @@ public class ClientServices implements IClienteServices {
     @Override
     public void deleteClient(UUID clientId) {
        Client client= clientRepository.findByIdAndActive(clientId,ACTIVE);
-       client.setModificationDate(new Date());
+       client.setModificationDate(LocalDate.now());
        client.setActive(false);
        clientRepository.delete(client);
     }
 
     @Override
     public ClientDTOResponse updateClient(UUID clientId, ClientDTORequest clientDTORequest) {
+
+
         getClient(clientId);
         Client clientTmp = clientMapper.convertToEntity(clientDTORequest);
-        clientTmp.setModificationDate(new Date());
+        clientTmp.setModificationDate(LocalDate.now());
         ClientDTOResponse clientDTOResponse=createResponse(clientRepository.save(clientTmp));
 
         return clientDTOResponse ;

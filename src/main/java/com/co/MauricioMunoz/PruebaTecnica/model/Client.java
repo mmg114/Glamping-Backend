@@ -8,6 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +23,7 @@ import java.util.UUID;
 @Entity
 @Table(name="CLIENT")
 public class Client {
-
+    //
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
@@ -43,12 +44,12 @@ public class Client {
 
 
     @Column(name = "CREATION_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDate;
+    @Temporal(TemporalType.DATE)
+    private LocalDate creationDate;
 
     @Column(name = "MODIFICATION_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date modificationDate;
+    @Temporal(TemporalType.DATE)
+    private LocalDate modificationDate;
 
     @Column(name = "STATUS")
     private boolean active;
@@ -57,8 +58,8 @@ public class Client {
     private String token;
 
     @Column(name = "LAST_LOGIN")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLogin;
+    @Temporal(TemporalType.DATE)
+    private LocalDate lastLogin;
 
 
 
