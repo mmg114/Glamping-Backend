@@ -1,10 +1,10 @@
-# Prueba Tecnica
+# Glamping
 
 ### Como Ejecutar la app
 
 La app esta construida sobre java 21 y para ejecutarla se puede 
 
-* java -jar PruebaTecnica-0.0.1-SNAPSHOT.jar
+* java -jar glamping-backend-0.0.1-SNAPSHOT.jar
 
 Para generar el jar se puede realizar descargando el codigo y compilandolo con el siguiente comando
 
