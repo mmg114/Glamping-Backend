@@ -19,14 +19,4 @@ al desplegar la app el swagger se podra acceder en la siguiente url
 
 * http://localhost:8080/swagger-ui/index.html
 
-### H2
-NOTA: la base de datos se ejecuta solo al correr la app por el comando spring.jpa.hibernate.ddl-auto=create
 
-A la base de datos pueden acceder con el siguiente enlace y el usuario y password son los siguientes
-
-* Driver Class:org.h2.Driver
-* JDBC URL:jdbc:h2:mem:PruebaTecnica
-* User Name:Mauricio
-* Password:920929
-
-http://localhost:8080/h2-console/login.jsp
