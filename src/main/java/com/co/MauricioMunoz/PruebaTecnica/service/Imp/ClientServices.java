@@ -6,7 +6,7 @@ import com.co.MauricioMunoz.PruebaTecnica.exception.BussinesException;
 import com.co.MauricioMunoz.PruebaTecnica.mapper.ClientMapper;
 import com.co.MauricioMunoz.PruebaTecnica.model.Client;
 import com.co.MauricioMunoz.PruebaTecnica.repository.ClientRepository;
-import com.co.MauricioMunoz.PruebaTecnica.service.IClienteServices;
+import com.co.MauricioMunoz.PruebaTecnica.service.IClientServices;
 import com.co.MauricioMunoz.PruebaTecnica.utilities.EmailValidator;
 import com.co.MauricioMunoz.PruebaTecnica.utilities.JwtToken;
 import com.co.MauricioMunoz.PruebaTecnica.utilities.PasswordValidator;
@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @Scope("singleton")
 @Service
-public class ClientServices implements IClienteServices {
+public class ClientServices implements IClientServices {
 
     private final Boolean ACTIVE=true;
     private final Boolean INACTIVE=false;

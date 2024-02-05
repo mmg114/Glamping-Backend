@@ -3,13 +3,12 @@ package com.co.MauricioMunoz.PruebaTecnica.controller;
 import com.co.MauricioMunoz.PruebaTecnica.dto.request.ClientDTORequest;
 
 import com.co.MauricioMunoz.PruebaTecnica.dto.response.ClientDTOResponse;
-import com.co.MauricioMunoz.PruebaTecnica.service.IClienteServices;
+import com.co.MauricioMunoz.PruebaTecnica.service.IClientServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -17,7 +16,7 @@ import java.util.UUID;
 public class ClientController {
 
     @Autowired
-    IClienteServices clienteServices;
+    IClientServices clienteServices;
 
 
     @PostMapping

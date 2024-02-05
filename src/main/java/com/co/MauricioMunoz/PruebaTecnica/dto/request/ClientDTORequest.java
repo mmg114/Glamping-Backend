@@ -16,7 +16,7 @@ public class ClientDTORequest {
     @NotNull(message = "Debe ingresar un nombre de Cliente")
     private String name;
     @NotNull(message = "Debe ingresar un correo")
-    @Email(regexp = "^[a-zA-Z0-9._%+-]+@dominio\\.cl$",message = "Debe ingresar un correo en el siguente formato {Usuario}@dominio.cl")
+    @Email(regexp = "^[a-zA-Z0-9._%+-]+@dominio\\.co$",message = "Debe ingresar un correo en el siguente formato {Usuario}@dominio.co")
     private String email;
     @NotNull(message = "Debe ingresar una contraseña")
     private String password;

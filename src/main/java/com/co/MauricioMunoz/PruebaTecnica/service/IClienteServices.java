@@ -1,16 +1,17 @@
 package com.co.MauricioMunoz.PruebaTecnica.service;
 
-import com.co.MauricioMunoz.PruebaTecnica.dto.request.ClientDTORequest;
-import com.co.MauricioMunoz.PruebaTecnica.dto.response.ClientDTOResponse;
+import com.co.MauricioMunoz.PruebaTecnica.dto.request.ClienteDTORequest;
+import com.co.MauricioMunoz.PruebaTecnica.dto.response.ClienteDTOResponse;
 
 import java.util.UUID;
 
 public interface IClienteServices {
-   ClientDTOResponse create(ClientDTORequest clientDTORequest);
 
-   void deleteClient(UUID clientId);
+    ClienteDTOResponse create(ClienteDTORequest clienteDTORequest);
 
-   ClientDTOResponse updateClient(UUID clientId, ClientDTORequest clientDTORequest);
+    void delete(UUID clienteId);
 
-   ClientDTOResponse getClient(UUID clientId);
+    ClienteDTOResponse update(UUID clienteId, ClienteDTORequest clienteDTORequest);
+
+    ClienteDTOResponse buscar(UUID clienteId);
 }
