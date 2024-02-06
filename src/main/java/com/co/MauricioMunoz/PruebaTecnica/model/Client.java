@@ -19,11 +19,9 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name="CLIENT")
 public class Client {
 
-    @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "ID_CLIENT", columnDefinition = "VARCHAR(255)")

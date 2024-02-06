@@ -10,12 +10,10 @@ import java.util.UUID;
 @Setter
 @Builder
 @AllArgsConstructor
-@Entity
 @Table(name="PHONE")
 public class Phone {
 
 
-    @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "ID_PHONE", columnDefinition = "VARCHAR(255)")
