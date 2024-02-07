@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 @Builder
-public class ClienteDTORequest {
+public class ClienteDTO {
 
     private UUID id;
     private String nombre;
