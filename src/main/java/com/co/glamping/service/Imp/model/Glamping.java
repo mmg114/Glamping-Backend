@@ -1,8 +1,16 @@
-package com.co.glamping.model;
+package com.co.glamping.service.Imp.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "glamping")
 public class Glamping {
 

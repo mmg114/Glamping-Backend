@@ -1,6 +1,6 @@
 package com.co.glamping.repository;
 
-import com.co.glamping.model.Usuario;
+import com.co.glamping.service.Imp.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

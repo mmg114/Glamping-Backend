@@ -1,6 +1,6 @@
 package com.co.glamping.auth;
 
-import com.co.glamping.model.Rol;
+import com.co.glamping.service.Imp.model.enums.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

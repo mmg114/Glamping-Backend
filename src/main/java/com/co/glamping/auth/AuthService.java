@@ -1,8 +1,8 @@
 package com.co.glamping.auth;
 
 import com.co.glamping.auth.jwt.JwtService;
-import com.co.glamping.model.Rol;
-import com.co.glamping.model.Usuario;
+import com.co.glamping.service.Imp.model.enums.Rol;
+import com.co.glamping.service.Imp.model.Usuario;
 import com.co.glamping.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
