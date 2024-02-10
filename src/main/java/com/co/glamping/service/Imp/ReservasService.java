@@ -1,13 +1,11 @@
 package com.co.glamping.service.Imp;
 
 import com.co.glamping.dto.response.ReservasDTOResponse;
-import com.co.glamping.service.Imp.model.enums.Estados;
 import com.co.glamping.repository.ReservasRepository;
 import com.co.glamping.service.IReservasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 @Service
 public class ReservasService implements IReservasService {
@@ -18,6 +16,7 @@ public class ReservasService implements IReservasService {
     ReservasRepository reservasRepository;
     @Override
     public List<ReservasDTOResponse> reservasDashboard() {
-        return reservasRepository.findByEstadoAndFechaInicio(List.of(Estados.ABONADO,Estados.PAGADO),LocalDate.now());
+     return null;
+        //   return reservasRepository.findByEstadoAndFechaInicio(List.of(Estados.ABONADO,Estados.PAGADO),LocalDate.now());
     }
 }

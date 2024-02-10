@@ -1,4 +1,4 @@
-package com.co.glamping.service.Imp.model;
+package com.co.glamping.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,5 +25,5 @@ public class Glamping {
     @Column(name = "caracteristicas", columnDefinition = "json")
     private String caracteristicas;
 
-    // Getters and setters
+
 }

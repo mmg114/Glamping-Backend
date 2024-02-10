@@ -1,4 +1,4 @@
-package com.co.glamping.service.Imp.model.enums;
+package com.co.glamping.model.enums;
 
 public enum Estados {
 

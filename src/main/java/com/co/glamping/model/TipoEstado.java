@@ -1,4 +1,4 @@
-package com.co.glamping.service.Imp.model;
+package com.co.glamping.model;
 
 import jakarta.persistence.*;
 

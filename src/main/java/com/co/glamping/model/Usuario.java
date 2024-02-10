@@ -1,6 +1,6 @@
-package com.co.glamping.service.Imp.model;
+package com.co.glamping.model;
 
-import com.co.glamping.service.Imp.model.enums.Rol;
+import com.co.glamping.model.enums.Rol;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +10,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,7 +19,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Usuario  implements UserDetails {
+public class Usuario implements UserDetails
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,11 +32,10 @@ public class Usuario  implements UserDetails {
 
     @Column(name = "contrasena", length = 255)
     private String contrasena;
-    @Enumerated(EnumType.STRING)
+
     @Column(name = "rol_id")
     private Rol rol;
 
-    private LocalDate fechaCreacion;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

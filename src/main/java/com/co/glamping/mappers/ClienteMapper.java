@@ -1,3 +1,4 @@
+/*
 package com.co.glamping.mappers;
 
 import com.co.glamping.dto.ClienteDTO;
@@ -14,3 +15,4 @@ public interface ClienteMapper extends GenericMapper<ClienteDTO, Cliente> {
     Cliente toEntity(ClienteDTO clienteDto);
 
 }
+*/
