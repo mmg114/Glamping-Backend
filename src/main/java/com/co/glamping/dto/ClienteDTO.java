@@ -10,7 +10,7 @@ import java.util.UUID;
 @Builder
 public class ClienteDTO {
 
-    private UUID id;
+    private Long id;
     private String nombre;
     private String apellido;
     private String documento;

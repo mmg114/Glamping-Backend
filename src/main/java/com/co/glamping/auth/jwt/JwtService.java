@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class JwtService {
@@ -21,7 +22,7 @@ public class JwtService {
         return getToken(new HashMap<>(),usuario);
     }
 
-    private String getToken(HashMap<String,Object> extraChain, UserDetails usuario) {
+    private String getToken(Map<String,Object> extraChain, UserDetails usuario) {
       return   Jwts
               .builder()
               .setClaims(extraChain)
