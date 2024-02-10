@@ -21,8 +21,9 @@ public class ClienteService implements IClienteService {
     @Override
     public ClienteDTO getCliente(Long clienteId) {
         Cliente cliente = clienteRepository.findById(clienteId).orElse(null);
+
         if (cliente != null){
-            return ClienteDTO.builder().build();
+            return clienteMapper.toDto(cliente);
         } else {
           throw new BussinesException("No existe Cliente con el ID: " + clienteId);
         }
