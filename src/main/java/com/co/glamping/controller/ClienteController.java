@@ -42,6 +42,6 @@ public class ClienteController {
     @DeleteMapping("/{clienteId}")
     public ResponseEntity<Void> delete(@PathVariable Long clienteId){
         clienteService.delete(clienteId);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build(); // me devuelve un 204
     }
 }
