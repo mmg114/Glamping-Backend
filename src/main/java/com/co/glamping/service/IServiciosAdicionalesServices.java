@@ -1,8 +1,8 @@
-package com.co.MauricioMunoz.PruebaTecnica.service;
+package com.co.glamping.service;
 
 import com.co.MauricioMunoz.PruebaTecnica.dto.request.ServiciosAdicionalesDTORequest;
-import com.co.MauricioMunoz.PruebaTecnica.dto.response.ServiciosAdicionalesDTOResponse;
-import com.co.MauricioMunoz.PruebaTecnica.model.ServiciosAdicionales;
+import com.co.glamping.dto.response.ServiciosAdicionalesDTOResponse;
+import com.co.glamping.model.ServiciosAdicionales;
 
 import java.util.List;
 

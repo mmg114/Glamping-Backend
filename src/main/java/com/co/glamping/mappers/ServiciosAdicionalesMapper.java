@@ -1,15 +1,14 @@
-package com.co.MauricioMunoz.PruebaTecnica.mapper;
+package com.co.glamping.mappers;
 
 import com.co.MauricioMunoz.PruebaTecnica.dto.request.ServiciosAdicionalesDTORequest;
-import com.co.MauricioMunoz.PruebaTecnica.dto.response.ServiciosAdicionalesDTOResponse;
-import com.co.MauricioMunoz.PruebaTecnica.model.ServiciosAdicionales;
+import com.co.glamping.dto.response.ServiciosAdicionalesDTOResponse;
+import com.co.glamping.model.ServiciosAdicionales;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import org.springframework.stereotype.Component;
 
-@Mapper
-@Component
+
+@Mapper(componentModel = "spring")
 public interface ServiciosAdicionalesMapper {
 
     ServiciosAdicionalesMapper INSTANCE = Mappers.getMapper(ServiciosAdicionalesMapper.class);

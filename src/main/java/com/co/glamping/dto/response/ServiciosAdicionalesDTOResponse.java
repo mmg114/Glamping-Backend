@@ -1,4 +1,4 @@
-package com.co.MauricioMunoz.PruebaTecnica.dto.response;
+package com.co.glamping.dto.response;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,7 +11,6 @@ public class ServiciosAdicionalesDTOResponse {
     @NotBlank(message = "El nombre del servicio no puede estar en blanco")
     private String nombreServicio;
 
-    // Otros campos, getters y setters
 
     public Long getIdServicio() {
         return idServicio;
@@ -29,3 +28,4 @@ public class ServiciosAdicionalesDTOResponse {
         this.nombreServicio = nombreServicio;
     }
 }
+

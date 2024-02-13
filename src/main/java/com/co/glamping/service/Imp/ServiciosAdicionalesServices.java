@@ -1,12 +1,12 @@
-package com.co.MauricioMunoz.PruebaTecnica.service.Imp;
+package com.co.glamping.service.Imp;
 
 import com.co.MauricioMunoz.PruebaTecnica.dto.request.ServiciosAdicionalesDTORequest;
-import com.co.MauricioMunoz.PruebaTecnica.dto.response.ServiciosAdicionalesDTOResponse;
 import com.co.MauricioMunoz.PruebaTecnica.exception.ServiciosAdicionalesException;
-import com.co.MauricioMunoz.PruebaTecnica.model.ServiciosAdicionales;
-import com.co.MauricioMunoz.PruebaTecnica.repository.ServiciosAdicionalesRepository;
-import com.co.MauricioMunoz.PruebaTecnica.mapper.ServiciosAdicionalesMapper;
-import com.co.MauricioMunoz.PruebaTecnica.service.IServiciosAdicionalesServices;
+import com.co.glamping.dto.response.ServiciosAdicionalesDTOResponse;
+import com.co.glamping.mappers.ServiciosAdicionalesMapper;
+import com.co.glamping.model.ServiciosAdicionales;
+import com.co.glamping.repository.ServiciosAdicionalesRepository;
+import com.co.glamping.service.IServiciosAdicionalesServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

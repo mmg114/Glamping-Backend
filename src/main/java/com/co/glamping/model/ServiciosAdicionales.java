@@ -1,4 +1,4 @@
-package com.co.MauricioMunoz.PruebaTecnica.model;
+package com.co.glamping.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

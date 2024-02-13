@@ -1,9 +1,7 @@
-<<<<<<< HEAD:src/main/java/com/co/MauricioMunoz/PruebaTecnica/controller/ServiciosAdicionalesController.java
-package com.co.MauricioMunoz.PruebaTecnica.controller;
-
-import com.co.MauricioMunoz.PruebaTecnica.dto.response.ServiciosAdicionalesDTOResponse;
-import com.co.MauricioMunoz.PruebaTecnica.model.ServiciosAdicionales;
-import com.co.MauricioMunoz.PruebaTecnica.service.IServiciosAdicionalesServices;
+package com.co.glamping.controller;
+import com.co.glamping.dto.response.ServiciosAdicionalesDTOResponse;
+import com.co.glamping.model.ServiciosAdicionales;
+import com.co.glamping.service.IServiciosAdicionalesServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,10 +48,3 @@ public class ServiciosAdicionalesController {
     }
 }
 
-
-=======
-package com.co.glamping.controller;
-
-public class ServiciosAdicionalesController {
-}
->>>>>>> Dev:src/main/java/com/co/glamping/controller/ServiciosAdicionalesController.java

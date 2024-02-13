@@ -1,6 +1,7 @@
-package com.co.MauricioMunoz.PruebaTecnica.repository;
+package com.co.glamping.repository;
 
-import com.co.MauricioMunoz.PruebaTecnica.model.ServiciosAdicionales;
+
+import com.co.glamping.model.ServiciosAdicionales;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
