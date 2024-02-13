@@ -36,4 +36,35 @@ public class ClienteService implements IClienteService {
         ClienteDTO nuevoClienteDTO = clienteMapper.toDto(cliente);
         return nuevoClienteDTO;
     }
+
+    @Override
+    public ClienteDTO update(Long clienteId, ClienteDTO clienteDTO) {
+        Cliente cliente = clienteRepository.findById(clienteId).orElse(null);
+        if (cliente == null){
+            throw new BussinesException("Cliente con ID: " + clienteId + "No existe" );
+        }
+
+        cliente.setNombre(clienteDTO.getNombre());
+        cliente.setApellido(clienteDTO.getApellido());
+        cliente.setDocumento(clienteDTO.getDocumento());
+        cliente.setTipoDocumento(clienteDTO.getTipoDocumento());
+        cliente.setFechaNacimiento(clienteDTO.getFechaNacimiento());
+        cliente.setCorreoElectronico(clienteDTO.getCorreoElectronico());
+
+        Cliente clienteUpdate = clienteRepository.save(cliente);
+
+        return clienteMapper.toDto(clienteUpdate);
+    }
+
+    @Override
+    public void delete(Long clienteId) {
+        Cliente cliente = clienteRepository.findById(clienteId).orElse(null);
+        if (cliente == null){
+            throw new BussinesException("Cliente con ID: " + clienteId + "No existe" );
+        }
+
+        clienteRepository.delete(cliente);
+    }
+
+
 }

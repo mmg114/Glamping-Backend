@@ -32,4 +32,16 @@ public class ClienteController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PutMapping("/{clienteId}")
+    public ResponseEntity<ClienteDTO> update(@PathVariable Long clienteId, @RequestBody ClienteDTO clienteDTO){
+        ClienteDTO cliente = clienteService.update(clienteId, clienteDTO);
+        return ResponseEntity.ok(cliente);
+    }
+
+    @DeleteMapping("/{clienteId}")
+    public ResponseEntity<Void> delete(@PathVariable Long clienteId){
+        clienteService.delete(clienteId);
+        return ResponseEntity.noContent().build();
+    }
 }

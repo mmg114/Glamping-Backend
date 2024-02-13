@@ -8,4 +8,8 @@ public interface IClienteService {
 
     ClienteDTO create(ClienteDTO clienteDTO);
 
+    ClienteDTO update(Long clienteId, ClienteDTO clienteDTO);
+
+    void delete(Long clienteId);
+
 }
