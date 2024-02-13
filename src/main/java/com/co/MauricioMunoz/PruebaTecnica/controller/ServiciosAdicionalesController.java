@@ -1,5 +1,6 @@
 package com.co.MauricioMunoz.PruebaTecnica.controller;
 
+import com.co.MauricioMunoz.PruebaTecnica.dto.response.ServiciosAdicionalesDTOResponse;
 import com.co.MauricioMunoz.PruebaTecnica.model.ServiciosAdicionales;
 import com.co.MauricioMunoz.PruebaTecnica.service.IServiciosAdicionalesServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,10 @@ public class ServiciosAdicionalesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ServiciosAdicionales> obtenerServicioAdicionalPorId(@PathVariable Long id) {
-        ServiciosAdicionales servicioAdicional = serviciosAdicionalesServices.obtenerServicioAdicionalPorId(id);
-        return servicioAdicional != null
-                ? ResponseEntity.ok(servicioAdicional)
-                : ResponseEntity.notFound().build();
+    public ResponseEntity<ServiciosAdicionalesDTOResponse> obtenerServicioAdicionalPorId(@PathVariable Long id) {
+        ServiciosAdicionalesDTOResponse servicioAdicional = serviciosAdicionalesServices.obtenerServicioAdicionalPorId(id);
+        return ResponseEntity.ok(servicioAdicional);
+
     }
 
     @PostMapping
@@ -39,9 +39,7 @@ public class ServiciosAdicionalesController {
     @PutMapping("/{id}")
     public ResponseEntity<ServiciosAdicionales> actualizarServicioAdicional(@PathVariable Long id, @RequestBody ServiciosAdicionales servicioAdicional) {
         ServiciosAdicionales servicioActualizado = serviciosAdicionalesServices.actualizarServicioAdicional(id, servicioAdicional);
-        return servicioActualizado != null
-                ? ResponseEntity.ok(servicioActualizado)
-                : ResponseEntity.notFound().build();
+        return ResponseEntity.ok(servicioActualizado);
     }
 
     @DeleteMapping("/{id}")

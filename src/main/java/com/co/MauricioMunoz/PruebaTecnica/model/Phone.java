@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.UUID;
 
+@Entity
 @Getter
 @Setter
 @Builder
@@ -14,6 +15,7 @@ import java.util.UUID;
 public class Phone {
 
 
+    @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "ID_PHONE", columnDefinition = "VARCHAR(255)")

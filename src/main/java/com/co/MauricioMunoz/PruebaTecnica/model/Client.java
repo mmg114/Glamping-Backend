@@ -1,4 +1,4 @@
-package com.co.MauricioMunoz.PruebaTecnica.model;
+ package com.co.MauricioMunoz.PruebaTecnica.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-
+@Entity
 @Getter
 @Setter
 @Builder
@@ -22,6 +22,7 @@ import java.util.UUID;
 @Table(name="CLIENT")
 public class Client {
 
+    @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "ID_CLIENT", columnDefinition = "VARCHAR(255)")
@@ -62,3 +63,5 @@ public class Client {
 
 
 }
+
+
