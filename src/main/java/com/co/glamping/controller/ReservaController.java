@@ -1,14 +1,16 @@
 package com.co.glamping.controller;
 
+import com.co.glamping.dto.ReservasDTO;
+import com.co.glamping.dto.response.DashboardDTO;
 import com.co.glamping.dto.response.ReservasDTOResponse;
 import com.co.glamping.service.IReservasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,7 +23,64 @@ public class ReservaController {
 
 
     @GetMapping("/dashboard")
-    public ResponseEntity<List<ReservasDTOResponse>> getUser() {
-        return new ResponseEntity<>(iReservasService.reservasDashboard(), HttpStatus.OK);
+    public ResponseEntity<DashboardDTO> getDashboard() {
+
+        List<ReservasDTOResponse> reservasDTOS = new ArrayList<>();
+        reservasDTOS.add(
+                ReservasDTOResponse.builder()
+                        .fechaInicioReserva(LocalDate.now())
+                        .estadoGlamping("Activa")
+                        .nombreCliente("Mauricio")
+                        .build()
+        );
+        reservasDTOS.add(
+                ReservasDTOResponse.builder()
+                        .fechaInicioReserva(LocalDate.now())
+                        .estadoGlamping("Activa")
+                        .nombreCliente("Andres")
+                        .build()
+        );
+        DashboardDTO dbDto = DashboardDTO.builder()
+                .reporteReservasAbonadas(10L)
+                .reporteVentasTotales(19L)
+                .reporteReservasTotales(30L)
+                .reservas(reservasDTOS)
+                .build();
+
+
+        return new ResponseEntity<>(dbDto, HttpStatus.OK);
     }
+
+
+    // Servicio para obtener una reserva por ID
+    @GetMapping("/{reservaId}")
+    public ResponseEntity<ReservasDTOResponse> getReserva(@PathVariable Long reservaId) {
+        return new ResponseEntity<>(iReservasService.getReservaById(reservaId), HttpStatus.OK);
+    }
+
+    // Servicio para crear una nueva reserva
+    @PostMapping
+    public ResponseEntity<ReservasDTOResponse> createReserva(@RequestBody ReservasDTO reserva) {
+        // Lógica para crear una nueva reserva
+
+        return new ResponseEntity<>(iReservasService.createReserva(reserva), HttpStatus.CREATED);
+    }
+
+    // Servicio para actualizar una reserva existente
+    @PutMapping("/{reservaId}")
+    public ResponseEntity<ReservasDTOResponse> updateReserva(@PathVariable Long reservaId, @RequestBody ReservasDTO reserva) {
+        // Lógica para actualizar la reserva por ID
+        return new ResponseEntity<>(iReservasService.updateReserva(reservaId, reserva), HttpStatus.OK);
+    }
+
+    // Servicio para eliminar una reserva por ID
+    @DeleteMapping("/{reservaId}")
+    public ResponseEntity<Void> deleteReserva(@PathVariable Long reservaId) {
+        // Lógica para eliminar la reserva por ID
+
+        return new ResponseEntity<>( iReservasService.deleteReserva(reservaId),HttpStatus.NO_CONTENT);
+    }
+
+
 }
+

@@ -1,12 +1,19 @@
 package com.co.glamping.dto.response;
 
-import java.math.BigDecimal;
+import lombok.Builder;
+import lombok.Data;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+@Builder
+@Data
 public class ReservasDTOResponse {
 
-    String nombreGlamping;
-    String fechaInicioReserva;
-    String fechaFinReserva;
-    String estadoGlamping;
-    BigDecimal abonado;
+    private String nombreGlamping;
+    private LocalDate fechaInicioReserva;
+    private LocalDate fechaFinReserva;
+    private String estadoGlamping;
+    private BigDecimal abonado;
+    private String nombreCliente;
 }
