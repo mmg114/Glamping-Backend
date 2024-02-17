@@ -1,12 +1,17 @@
 package com.co.glamping.service;
 
-import com.co.MauricioMunoz.PruebaTecnica.dto.request.ServiciosAdicionalesDTORequest;
+
+import com.co.glamping.dto.request.ServiciosAdicionalesDTORequest;
 import com.co.glamping.dto.response.ServiciosAdicionalesDTOResponse;
 import com.co.glamping.model.ServiciosAdicionales;
 
 import java.util.List;
 
+import java.util.List;
+
 public interface IServiciosAdicionalesServices {
+
+    ServiciosAdicionalesDTOResponse agregarServicioAdicional(ServiciosAdicionalesDTORequest servicioAdicionalDTORequest);
 
     List<ServiciosAdicionales> obtenerTodosLosServiciosAdicionales();
 
@@ -24,11 +29,13 @@ public interface IServiciosAdicionalesServices {
 
     ServiciosAdicionalesDTOResponse obtenerServicioAdicionalDTOporId(Long idServicio);
 
-    ServiciosAdicionalesDTOResponse agregarServicioAdicional(ServiciosAdicionalesDTORequest servicioAdicionalDTORequest);
-
     ServiciosAdicionalesDTOResponse actualizarServicioAdicional(Long idServicio, ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest);
 
     void eliminarServicioAdicional(Long idServicio);
 
     void eliminarServicioAdicionalPorId(Long idServicio);
+
+    ServiciosAdicionales crearServicioAdicional(ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest);
+
 }
+

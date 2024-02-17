@@ -1,6 +1,6 @@
 package com.co.glamping.mappers;
 
-import com.co.MauricioMunoz.PruebaTecnica.dto.request.ServiciosAdicionalesDTORequest;
+import com.co.glamping.dto.request.ServiciosAdicionalesDTORequest;
 import com.co.glamping.dto.response.ServiciosAdicionalesDTOResponse;
 import com.co.glamping.model.ServiciosAdicionales;
 import org.mapstruct.Mapper;
@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 
 
 @Mapper(componentModel = "spring")
-public interface ServiciosAdicionalesMapper {
+public interface ServiciosAdicionalesMapper<ServiciosAdicionalesDTORequest> {
 
     ServiciosAdicionalesMapper INSTANCE = Mappers.getMapper(ServiciosAdicionalesMapper.class);
 
@@ -19,6 +19,10 @@ public interface ServiciosAdicionalesMapper {
     ServiciosAdicionales toEntity(ServiciosAdicionalesDTORequest dto);
 
     ServiciosAdicionales toEntity(ServiciosAdicionalesDTORequest dto, Long idServicio);
+
+    ServiciosAdicionales toEntity(com.co.glamping.dto.request.ServiciosAdicionalesDTORequest dto);
+
+    ServiciosAdicionales toEntity(com.co.glamping.dto.request.ServiciosAdicionalesDTORequest dto, Long idServicio);
 }
 
 

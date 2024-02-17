@@ -1,4 +1,4 @@
-package com.co.MauricioMunoz.PruebaTecnica.exception;
+package com.co.glamping.exception;
 
 public class ServiciosAdicionalesException extends RuntimeException {
 

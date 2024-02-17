@@ -27,7 +27,6 @@ public class ServiciosAdicionales {
         this.costo = costo;
     }
 
-    // Getters y setters
 
     public Long getIdServicio() {
         return idServicio;

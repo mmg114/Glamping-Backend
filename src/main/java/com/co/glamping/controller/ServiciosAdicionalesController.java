@@ -1,4 +1,6 @@
 package com.co.glamping.controller;
+
+import com.co.glamping.dto.request.ServiciosAdicionalesDTORequest;
 import com.co.glamping.dto.response.ServiciosAdicionalesDTOResponse;
 import com.co.glamping.model.ServiciosAdicionales;
 import com.co.glamping.service.IServiciosAdicionalesServices;
@@ -26,18 +28,17 @@ public class ServiciosAdicionalesController {
     public ResponseEntity<ServiciosAdicionalesDTOResponse> obtenerServicioAdicionalPorId(@PathVariable Long id) {
         ServiciosAdicionalesDTOResponse servicioAdicional = serviciosAdicionalesServices.obtenerServicioAdicionalPorId(id);
         return ResponseEntity.ok(servicioAdicional);
-
     }
 
     @PostMapping
-    public ResponseEntity<ServiciosAdicionales> agregarServicioAdicional(@RequestBody ServiciosAdicionales servicioAdicional) {
-        ServiciosAdicionales nuevoServicioAdicional = serviciosAdicionalesServices.agregarServicioAdicional(servicioAdicional);
+    public ResponseEntity<ServiciosAdicionales> agregarServicioAdicional(@RequestBody ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest) {
+        ServiciosAdicionales nuevoServicioAdicional = serviciosAdicionalesServices.crearServicioAdicional(serviciosAdicionalesDTORequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoServicioAdicional);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ServiciosAdicionales> actualizarServicioAdicional(@PathVariable Long id, @RequestBody ServiciosAdicionales servicioAdicional) {
-        ServiciosAdicionales servicioActualizado = serviciosAdicionalesServices.actualizarServicioAdicional(id, servicioAdicional);
+    public ResponseEntity<ServiciosAdicionalesDTOResponse> actualizarServicioAdicional(@PathVariable Long id, @RequestBody ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest) {
+        ServiciosAdicionalesDTOResponse servicioActualizado = serviciosAdicionalesServices.actualizarServicioAdicional(id, serviciosAdicionalesDTORequest);
         return ResponseEntity.ok(servicioActualizado);
     }
 
@@ -47,4 +48,3 @@ public class ServiciosAdicionalesController {
         return ResponseEntity.noContent().build();
     }
 }
-
