@@ -7,13 +7,15 @@ import java.util.List;
 
 public interface IReservasService {
 
-    public List<ReservasDTOResponse> reservasDashboard();
+    public List<ReservasDTO> reservasDashboard();
 
-    ReservasDTOResponse getReservaById(Long reservaId);
+    ReservasDTO getReservaById(Long reservaId);
 
-    ReservasDTOResponse createReserva(ReservasDTO reserva);
+    ReservasDTO createReserva(ReservasDTO reserva);
 
-    ReservasDTOResponse updateReserva(Long reservaId, ReservasDTO reserva);
+    ReservasDTO updateReserva(Long reservaId, ReservasDTO reserva);
 
-    Void deleteReserva(Long reservaId);
+    void deleteReserva(Long reservaId);
+
+     List<ReservasDTO> getAll();
 }

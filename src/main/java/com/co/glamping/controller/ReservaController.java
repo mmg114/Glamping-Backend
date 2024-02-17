@@ -21,7 +21,7 @@ public class ReservaController {
     @Autowired
     IReservasService iReservasService;
 
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/dashboard")
     public ResponseEntity<DashboardDTO> getDashboard() {
 
@@ -54,21 +54,20 @@ public class ReservaController {
 
     // Servicio para obtener una reserva por ID
     @GetMapping("/{reservaId}")
-    public ResponseEntity<ReservasDTOResponse> getReserva(@PathVariable Long reservaId) {
+    public ResponseEntity<ReservasDTO> getReserva(@PathVariable Long reservaId) {
         return new ResponseEntity<>(iReservasService.getReservaById(reservaId), HttpStatus.OK);
     }
 
     // Servicio para crear una nueva reserva
     @PostMapping
-    public ResponseEntity<ReservasDTOResponse> createReserva(@RequestBody ReservasDTO reserva) {
+    public ResponseEntity<ReservasDTO> createReserva(@RequestBody ReservasDTO reserva) {
         // Lógica para crear una nueva reserva
-
         return new ResponseEntity<>(iReservasService.createReserva(reserva), HttpStatus.CREATED);
     }
 
     // Servicio para actualizar una reserva existente
     @PutMapping("/{reservaId}")
-    public ResponseEntity<ReservasDTOResponse> updateReserva(@PathVariable Long reservaId, @RequestBody ReservasDTO reserva) {
+    public ResponseEntity<ReservasDTO> updateReserva(@PathVariable Long reservaId, @RequestBody ReservasDTO reserva) {
         // Lógica para actualizar la reserva por ID
         return new ResponseEntity<>(iReservasService.updateReserva(reservaId, reserva), HttpStatus.OK);
     }
@@ -77,8 +76,8 @@ public class ReservaController {
     @DeleteMapping("/{reservaId}")
     public ResponseEntity<Void> deleteReserva(@PathVariable Long reservaId) {
         // Lógica para eliminar la reserva por ID
-
-        return new ResponseEntity<>( iReservasService.deleteReserva(reservaId),HttpStatus.NO_CONTENT);
+        iReservasService.deleteReserva(reservaId);
+        return new ResponseEntity<>( HttpStatus.NO_CONTENT);
     }
 
 

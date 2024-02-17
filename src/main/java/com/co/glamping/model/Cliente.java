@@ -23,7 +23,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cliente_id")
-    private int clienteId;
+    private Long clienteId;
 
     @NotBlank
     @NotNull

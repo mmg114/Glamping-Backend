@@ -17,7 +17,7 @@ public class Glamping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "glamping_id")
-    private int glampingId;
+    private Long glampingId;
 
     @Column(name = "nombre")
     private String nombre;
