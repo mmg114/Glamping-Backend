@@ -33,30 +33,39 @@ public class ServiciosAdicionalesServices implements IServiciosAdicionalesServic
 
     @Override
     public ServiciosAdicionalesDTOResponse obtenerServicioAdicionalDTOporId(Long idServicio) {
-        return null;
+        ServiciosAdicionales servicioAdicional = serviciosAdicionalesRepository.findById(idServicio)
+                .orElseThrow(() -> new ServiciosAdicionalesException(idServicio));
+        return serviciosAdicionalesMapper.toDTO(servicioAdicional);
     }
 
     @Override
     public ServiciosAdicionalesDTOResponse agregarServicioAdicional(ServiciosAdicionalesDTORequest servicioAdicionalDTORequest) {
-        return null;
+        ServiciosAdicionales servicioAdicional = serviciosAdicionalesMapper.toEntity(servicioAdicionalDTORequest);
+        ServiciosAdicionales servicioGuardado = serviciosAdicionalesRepository.save(servicioAdicional);
+        return serviciosAdicionalesMapper.toDTO(servicioGuardado);
     }
 
     @Override
     public ServiciosAdicionalesDTOResponse actualizarServicioAdicional(Long idServicio, ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest) {
-        return null;
+        ServiciosAdicionales servicioAdicionalExistente = serviciosAdicionalesRepository.findById(idServicio)
+                .orElseThrow(() -> new ServiciosAdicionalesException(idServicio));
+        ServiciosAdicionales servicioActualizado = serviciosAdicionalesMapper.toEntity(serviciosAdicionalesDTORequest);
+        servicioAdicionalExistente.setNombreServicio(servicioActualizado.getNombreServicio());
+        servicioAdicionalExistente.setCategoria(servicioActualizado.getCategoria());
+        servicioAdicionalExistente.setDescripcion(servicioActualizado.getDescripcion());
+        servicioAdicionalExistente.setCosto(servicioActualizado.getCosto());
+        return serviciosAdicionalesMapper.toDTO(serviciosAdicionalesRepository.save(servicioAdicionalExistente));
     }
 
     @Override
     public List<ServiciosAdicionales> obtenerTodosLosServiciosAdicionales() {
-        return null;
+        return serviciosAdicionalesRepository.findAll();
     }
 
     @Override
-    public ServiciosAdicionalesDTOResponse obtenerServicioAdicionalPorId(Long idServicio) {
-        ServiciosAdicionales servicioAdicional = serviciosAdicionalesRepository.findById(idServicio)
+    public ServiciosAdicionales obtenerServicioAdicionalPorId(Long idServicio) {
+        return serviciosAdicionalesRepository.findById(idServicio)
                 .orElseThrow(() -> new ServiciosAdicionalesException(idServicio));
-
-        return serviciosAdicionalesMapper.toDTO(servicioAdicional);
     }
 
     @Override
@@ -78,12 +87,10 @@ public class ServiciosAdicionalesServices implements IServiciosAdicionalesServic
     public ServiciosAdicionales actualizarServicioAdicional(Long id, ServiciosAdicionales servicioAdicional) {
         ServiciosAdicionales servicioExistente = serviciosAdicionalesRepository.findById(id)
                 .orElseThrow(() -> new ServiciosAdicionalesException(id));
-
         servicioExistente.setNombreServicio(servicioAdicional.getNombreServicio());
         servicioExistente.setCategoria(servicioAdicional.getCategoria());
         servicioExistente.setDescripcion(servicioAdicional.getDescripcion());
         servicioExistente.setCosto(servicioAdicional.getCosto());
-
         return serviciosAdicionalesRepository.save(servicioExistente);
     }
 
@@ -92,7 +99,6 @@ public class ServiciosAdicionalesServices implements IServiciosAdicionalesServic
         if (!serviciosAdicionalesRepository.existsById(idServicio)) {
             throw new ServiciosAdicionalesException(idServicio);
         }
-
         serviciosAdicionalesRepository.deleteById(idServicio);
     }
 
@@ -101,12 +107,11 @@ public class ServiciosAdicionalesServices implements IServiciosAdicionalesServic
         if (!serviciosAdicionalesRepository.existsById(idServicio)) {
             throw new ServiciosAdicionalesException(idServicio);
         }
-
         serviciosAdicionalesRepository.deleteById(idServicio);
     }
 
     @Override
     public ServiciosAdicionales crearServicioAdicional(ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest) {
-        return null;
+        return serviciosAdicionalesMapper.toEntity(serviciosAdicionalesDTORequest);
     }
 }

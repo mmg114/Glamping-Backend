@@ -7,15 +7,13 @@ import com.co.glamping.model.ServiciosAdicionales;
 
 import java.util.List;
 
-import java.util.List;
-
 public interface IServiciosAdicionalesServices {
 
     ServiciosAdicionalesDTOResponse agregarServicioAdicional(ServiciosAdicionalesDTORequest servicioAdicionalDTORequest);
 
     List<ServiciosAdicionales> obtenerTodosLosServiciosAdicionales();
 
-    ServiciosAdicionalesDTOResponse obtenerServicioAdicionalPorId(Long id);
+    ServiciosAdicionales obtenerServicioAdicionalPorId(Long id);
 
     List<ServiciosAdicionales> obtenerServiciosAdicionalesPorNombre(String nombreServicio);
 
@@ -38,4 +36,3 @@ public interface IServiciosAdicionalesServices {
     ServiciosAdicionales crearServicioAdicional(ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest);
 
 }
-

@@ -19,20 +19,20 @@ public class ServiciosAdicionalesController {
     private IServiciosAdicionalesServices serviciosAdicionalesServices;
 
     @GetMapping
-    public ResponseEntity<List<ServiciosAdicionales>> obtenerTodosLosServiciosAdicionales() {
-        List<ServiciosAdicionales> serviciosAdicionales = serviciosAdicionalesServices.obtenerTodosLosServiciosAdicionales();
+    public ResponseEntity<List<ServiciosAdicionalesDTOResponse>> obtenerTodosLosServiciosAdicionales() {
+        List<ServiciosAdicionalesDTOResponse> serviciosAdicionales = serviciosAdicionalesServices.obtenerTodosLosServiciosAdicionalesDTO();
         return ResponseEntity.ok(serviciosAdicionales);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ServiciosAdicionalesDTOResponse> obtenerServicioAdicionalPorId(@PathVariable Long id) {
-        ServiciosAdicionalesDTOResponse servicioAdicional = serviciosAdicionalesServices.obtenerServicioAdicionalPorId(id);
+        ServiciosAdicionalesDTOResponse servicioAdicional = serviciosAdicionalesServices.obtenerServicioAdicionalDTOporId(id);
         return ResponseEntity.ok(servicioAdicional);
     }
 
     @PostMapping
-    public ResponseEntity<ServiciosAdicionales> agregarServicioAdicional(@RequestBody ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest) {
-        ServiciosAdicionales nuevoServicioAdicional = serviciosAdicionalesServices.crearServicioAdicional(serviciosAdicionalesDTORequest);
+    public ResponseEntity<ServiciosAdicionalesDTOResponse> agregarServicioAdicional(@RequestBody ServiciosAdicionalesDTORequest serviciosAdicionalesDTORequest) {
+        ServiciosAdicionalesDTOResponse nuevoServicioAdicional = serviciosAdicionalesServices.agregarServicioAdicional(serviciosAdicionalesDTORequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoServicioAdicional);
     }
 
