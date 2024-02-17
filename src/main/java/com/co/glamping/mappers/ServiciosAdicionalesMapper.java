@@ -7,9 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-
 @Mapper(componentModel = "spring")
-public interface ServiciosAdicionalesMapper<ServiciosAdicionalesDTORequest> {
+public interface ServiciosAdicionalesMapper {
 
     ServiciosAdicionalesMapper INSTANCE = Mappers.getMapper(ServiciosAdicionalesMapper.class);
 
@@ -20,9 +19,7 @@ public interface ServiciosAdicionalesMapper<ServiciosAdicionalesDTORequest> {
 
     ServiciosAdicionales toEntity(ServiciosAdicionalesDTORequest dto, Long idServicio);
 
-    ServiciosAdicionales toEntity(com.co.glamping.dto.request.ServiciosAdicionalesDTORequest dto);
-
-    ServiciosAdicionales toEntity(com.co.glamping.dto.request.ServiciosAdicionalesDTORequest dto, Long idServicio);
 }
+
 
 
