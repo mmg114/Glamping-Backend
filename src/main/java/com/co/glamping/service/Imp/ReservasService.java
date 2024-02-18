@@ -1,7 +1,6 @@
 package com.co.glamping.service.Imp;
 
 import com.co.glamping.dto.ReservasDTO;
-;
 import com.co.glamping.mappers.ReservaMappers;
 import com.co.glamping.model.*;
 import com.co.glamping.repository.ReservasRepository;
@@ -9,6 +8,7 @@ import com.co.glamping.service.IReservasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class ReservasService implements IReservasService {
@@ -18,6 +18,7 @@ public class ReservasService implements IReservasService {
 
     @Autowired
     ReservasRepository reservasRepository;
+    
     @Override
     public List<ReservasDTO> reservasDashboard() {
      return null;
@@ -31,8 +32,14 @@ public class ReservasService implements IReservasService {
 
     @Override
     public List<ReservasDTO> getAll() {
+        List<Reserva> reservas = reservasRepository.findAll(); //se obtiene lista de las reservas 
+        List<ReservasDTO> reservasDTOList = new ArrayList<>();//se hace una lista para los datos de transfernecia DTO
 
-        return null;//reservasMapper.toDTO(reservasRepository.findAll());
+        for (Reserva reserva : reservas) {
+             ReservasDTO reservaDTO = reservasMapper.toDTO(reserva);
+             reservasDTOList.add(reservaDTO); // se agrega los DTO a la lista  
+        }
+        return reservasDTOList; //se devuelve la lista de reservas  
     }
 
     @Override
