@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Glamping
 
 ### Como Ejecutar la app
@@ -20,3 +21,6 @@ al desplegar la app el swagger se podra acceder en la siguiente url
 * http://localhost:8080/swagger-ui/index.html
 
 
+=======
+
+>>>>>>> Dev
